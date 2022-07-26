@@ -15,8 +15,8 @@ const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
 
 Precios:
 - Por unidad $${precioUnidad}.
-- Promo media docena ${descuentoMediaDocena * 100}% off.
-- Promo docena ${descuentoDocena * 100}% off.
+- Llevando 6 o más ${descuentoMediaDocena * 100}% off.
+- Llevando 12 o más ${descuentoDocena * 100}% off.
 
 Elegí a continuación la cantidad y los sabores.`;
 
