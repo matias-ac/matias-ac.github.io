@@ -28,6 +28,8 @@ const mensajeMenu = `Menu:
 
 `;
 
+const mensajeSolicitarEmpanada = `${mensajeMenu} Ingresa el número de opción elegida:`
+
 const mensajePago = `Modalidad de pago:
 - Opción 1: Efectivo
 - Opción 2: Crédito`;
@@ -67,8 +69,12 @@ const solicitarCantidad = () => {
 
 let pedidoUsuario = `Los sabores elegidos son:`;
 
-const solicitarOpcion = () => {
-    return Number(prompt(`${mensajeMenu} Ingresa el número de opción elegida:`));
+const solicitarOpcion = (mensaje, cantidad) => {
+    let opcion = Number(prompt(`${mensaje}`));
+    while (!verificarOpcion(opcion, cantidad)) {
+        opcion = Number(prompt(`${mensaje}`));
+    }
+    return opcion;
 };
 
 const verificarOpcion = (opcion, cantidadDeOpciones) => {
@@ -100,12 +106,10 @@ const agregarOpcionAlPedido = (opcion) => {
 
 const solicitarSabores = (cantidad) => {
     let saboresSolicitados = 0;
-    while (saboresSolicitados < cantidad) {
-        let opcion = solicitarOpcion();
-        if (verificarOpcion(opcion, cantidadDeOpciones)) {
-            agregarOpcionAlPedido(opcion, pedidoUsuario);
-            saboresSolicitados++;
-        }
+    for (let i = 0; i < cantidad; i++) {
+        let opcion = solicitarOpcion(mensajeSolicitarEmpanada, cantidadDeOpciones);
+        agregarOpcionAlPedido(opcion, pedidoUsuario);
+        saboresSolicitados++;
     }
 };
 
@@ -133,24 +137,9 @@ const mostrarTotal = (cantidad) => {
     alert(`Tu total es: $${total}. A continuación elegí tu opción de pago.`);
 };
 
-const solicitarOpcionDePago = () => {
-    let opcion = Number(prompt(mensajePago));
-    while (!verificarOpcion(opcion, 2)) {
-        opcion = Number(prompt(mensajePago));
-    }
-    return opcion;
-};
-
-const solicitarOpcionDePromo = () => {
-    let opcion = Number(prompt(mensajePromos));
-    while (!verificarOpcion(opcion, 4)) {
-        opcion = Number(prompt(mensajePromos));
-    }
-    return opcion;
-};
-
 const procesarPagoEfectivo = (total) => {
     alert(`Pago completo, tu total fue de $${total}`);
+    console.log(`El pago final fue de: ${total}`);
 };
 
 const calcularDescuentoBancario = (opcion, total) => {
@@ -170,14 +159,15 @@ const calcularDescuentoBancario = (opcion, total) => {
 const procesarPagoTarjeta = (opcion, total) => {
     const pago = calcularDescuentoBancario(opcion, total);
     alert(`Pago completo, tu total fue de $${pago}`);
+    console.log(`El pago final fue de: ${pago}`);
 };
 
 const procesarPago = (total) => {
-    const pagoElegido = solicitarOpcionDePago();
+    const pagoElegido = solicitarOpcion(mensajePago, 2);
     if (pagoElegido === 1) {
         procesarPagoEfectivo(total);
     } else {
-        const promoElegida = solicitarOpcionDePromo();
+        const promoElegida = solicitarOpcion(mensajePromos, 4);
         procesarPagoTarjeta(promoElegida, total);
     }    
 };
