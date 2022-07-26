@@ -49,7 +49,7 @@ const mostrarMenu = () => {
 };
 
 const ingresarCantidad = () => {
-    const cantidad = Number(prompt('Ingresa la cantidad de empanadas que vas a llevar:'));
+    const cantidad = Number(parseInt(prompt('Ingresa la cantidad de empanadas que vas a llevar:')));
     return cantidad;
 };
 
@@ -70,9 +70,9 @@ const solicitarCantidad = () => {
 let pedidoUsuario = `Los sabores elegidos son:`;
 
 const solicitarOpcion = (mensaje, cantidad) => {
-    let opcion = Number(prompt(`${mensaje}`));
+    let opcion = Number(parseInt(prompt(`${mensaje}`)));
     while (!verificarOpcion(opcion, cantidad)) {
-        opcion = Number(prompt(`${mensaje}`));
+        opcion = Number(parseInt(prompt(`${mensaje}`)));
     }
     return opcion;
 };
