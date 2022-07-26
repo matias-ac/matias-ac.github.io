@@ -1,6 +1,11 @@
+const app = document.getElementById('app');
+const boton = document.getElementById('boton-iniciar');
+
 const precioUnidad = 250;
 const descuentoMediaDocena = 0.1;
 const descuentoDocena = 0.15;
+const cantidadDeOpciones = 6;
+const limitePedidoOnline = 60;
 
 const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
 
@@ -21,22 +26,22 @@ const mensajeMenu = `Menu:
 
 const saludarUsuario = () => {
     alert (mensajeBienvenida);
-}
+};
 
 const mostrarMenu = () => {
     alert (mensajeMenu);
-}
+};
 
 const ingresarCantidad = () => {
     const cantidad = Number(prompt('Ingresa la cantidad de empanadas que vas a llevar:'));
     return cantidad;
-}
+};
 
 const verificarCantidadIngresada = (cantidad) => {
     return (cantidad <= 0 || cantidad === null || isNaN(cantidad)) ? 
-    false : 
-    true;
-}
+        false : 
+        true;
+};
 
 const solicitarCantidad = () => {
     let cantidad = ingresarCantidad();
@@ -44,90 +49,85 @@ const solicitarCantidad = () => {
         cantidad = ingresarCantidad();
     }
     return cantidad;
-}
+};
 
-// alert(`Elegí los ${cantidadDeEmpanadas} sabores que vas a llevar.`)
-// console.log(`El cliente ingresó ${cantidadDeEmpanadas} empanadas.`);
+let pedidoUsuario = `Los sabores elegidos son:`;
 
-let sabores = `Los sabores elegidos son:`;
-let esIngresoCorrecto = false;
-let pedidoCompleto = 0;
+const solicitarOpcion = () => {
+    return Number(prompt(`${mensajeMenu} Ingresa el número de opción elegida:`));
+};
 
-const solicitarSabores = () => {
-    
-    while (pedidoCompleto < cantidadDeEmpanadas) {
-        let saborIngresado = Number(prompt(`${mensajeMenu} Ingresa el número de opción elegida:`));
-        let verificarValor = saborIngresado > 0 && saborIngresado <= 6 && saborIngresado !== null && !isNaN(saborIngresado);
+const verificarOpcion = (opcion, cantidadDeOpciones) => {
+    return (opcion > 0 && opcion <= cantidadDeOpciones && opcion !== null && !isNaN(opcion)) ?
+        true :
+        false;
+};
 
-        const ingresarSabor = (sabor) => {
-            sabores += `
-            - ${sabor}`;
-            pedidoCompleto++;
-        }
+const ingresarSabor = (sabor) => {
+    pedidoUsuario += `
+    - ${sabor}`;
+};
 
-        if (verificarValor) {
-            if (saborIngresado === 1) {
-                ingresarSabor('Carne Suave');
-            } else if (saborIngresado === 2) {
-                ingresarSabor('Carne Picante');
-            } else if (saborIngresado === 3) {
-                ingresarSabor('Verdura');
-            } else if (saborIngresado === 4) {
-                ingresarSabor('Jamón y Queso');
-            } else if (saborIngresado === 5) {
-                ingresarSabor('Roquefort y Jamón');
-            } else if (saborIngresado === 6) {
-                ingresarSabor('Pollo');
-            } 
-        } else {
-            alert('Ingreso incorrecto');
-        }
+const agregarOpcionAlPedido = (opcion) => {
+    if (opcion === 1) {
+        ingresarSabor('Carne Suave');
+    } else if (opcion === 2) {
+        ingresarSabor('Carne Picante');
+    } else if (opcion === 3) {
+        ingresarSabor('Verdura');
+    } else if (opcion === 4) {
+        ingresarSabor('Jamón y Queso');
+    } else if (opcion === 5) {
+        ingresarSabor('Roquefort y Jamón');
+    } else if (opcion === 6) {
+        ingresarSabor('Pollo');
+    }
+};
 
-        if (pedidoCompleto === cantidadDeEmpanadas) {
-            esIngresoCorrecto = true;
-            break;
+const solicitarSabores = (cantidad) => {
+    let saboresSolicitados = 0;
+    while (saboresSolicitados < cantidad) {
+        let opcion = solicitarOpcion();
+        if (verificarOpcion(opcion, cantidadDeOpciones)) {
+            agregarOpcionAlPedido(opcion, pedidoUsuario);
+            saboresSolicitados++;
         }
     }
-
-    alert(`${sabores}
-
-    Continua con tu pago.`);
-    console.log(`Ingreso correcto: ${esIngresoCorrecto}.`);
-    console.log(sabores);
-}
+};
 
 const mostrarOpcionesDePago = () => {
 
-}
+};
 
 const procesarPago = (opcion) => {
 
-}
+};
 
 const procesarPagoEfectivo = (cantidad, precio) => {
 
-}
+};
 
 const mostrarPromosBancarias = () => {
 
-}
+};
 
 const procesarPagoTarjeta = (cantidad, precio, descuento) => {
 
-}
+};
 
 const finalizarVenta = () => {
 
-}
+};
 
 function ejecutarPrograma() {
     saludarUsuario();
     mostrarMenu();
     const cantidad = solicitarCantidad();
     console.log(cantidad);
+    solicitarSabores(cantidad);
+    console.log(pedidoUsuario);
 }
 
-const app = document.getElementById('app');
-const boton = document.getElementById('boton-iniciar');
+
 
 boton.onclick = ejecutarPrograma;
