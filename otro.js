@@ -33,9 +33,9 @@ const ingresarCantidad = () => {
 }
 
 const verificarCantidadIngresada = (cantidad) => {
-    let cantidadEsCorrecta;
-    const condicion = cantidad <= 0 || cantidad === null || isNaN(cantidad); 
-    return (condicion) ? cantidadEsCorrecta = false : cantidadEsCorrecta = true;
+    return (cantidad <= 0 || cantidad === null || isNaN(cantidad)) ? 
+    false : 
+    true;
 }
 
 const solicitarCantidad = () => {
