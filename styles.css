@@ -31,8 +31,17 @@ li {
 }
 
 main {
+    background-color: gold;
     width: 800px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main div {
+    padding: 20px;
+    display: flex;
+    
 }
 
 button {
@@ -43,6 +52,7 @@ button {
     width: 180px;
     height: 60px;
     font-size: 18px;
+    align-self: center;
 }
 
 button:hover {
@@ -51,6 +61,12 @@ button:hover {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
     width: 800px;
+    height: 50px;
 }
 
