@@ -48,3 +48,11 @@ Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta `<script src="js
 - Calcular tiempo de espera promedio en relación a la cantidad de turnos registrados.
 - Calcular edad promedio de personas registradas.
 - Calcular nota final de alumnos ingresados.
+
+---
+
+### Descripción de la tarea desarrollada
+
+El programa consiste en procesar un pedido de empanadas de un usuario, solicitándole que ingrese la cantidad y sabores.
+
+También posee descuentos por llevar distintas cantidades y descuentos adicionales si se paga con algunas de las opciones de tarjeta de crédito disponibles.
