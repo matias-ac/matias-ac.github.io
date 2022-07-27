@@ -11,6 +11,8 @@ const promoBancoFrances = 0.05;
 const promoBancoHSBC = 0.05;
 const promoMercadoPago = 0.10;
 
+const sabores = ['Carne Suave', 'Carne Picante', 'Verdura', 'Jamón y Queso', 'Roquefort y Jamón', 'Pollo'];
+
 const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
 
 Precios:
