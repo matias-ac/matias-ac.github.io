@@ -24,7 +24,7 @@ Elegí a continuación la cantidad y los sabores.`;
 
 const mensajeMenu = `Menu:
 
-1. Carne Suave (CS)    4. Jamón y Queso (JQ)
+1. ${sabores[0]} (CS)    4. Jamón y Queso (JQ)
 2. Carne Picante (CP)  5. Roquefort y Jamón (RJ)
 3. Verdura (VE)        6. Pollo (PO)
 
@@ -91,7 +91,9 @@ const ingresarSabor = (sabor) => {
 };
 
 const agregarOpcionAlPedido = (opcion) => {
-    ingresarSabor(sabores[opcion]);
+    // necesita restar 1 porque los indices del array empiezan en 0
+    const indice = opcion - 1;
+    ingresarSabor(sabores[indice]);
 };
 
 const solicitarSabores = (cantidad) => {
