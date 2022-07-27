@@ -89,19 +89,7 @@ const ingresarSabor = (sabor) => {
 };
 
 const agregarOpcionAlPedido = (opcion) => {
-    if (opcion === 1) {
-        ingresarSabor('Carne Suave');
-    } else if (opcion === 2) {
-        ingresarSabor('Carne Picante');
-    } else if (opcion === 3) {
-        ingresarSabor('Verdura');
-    } else if (opcion === 4) {
-        ingresarSabor('Jamón y Queso');
-    } else if (opcion === 5) {
-        ingresarSabor('Roquefort y Jamón');
-    } else if (opcion === 6) {
-        ingresarSabor('Pollo');
-    }
+    ingresarSabor(sabores[opcion]);
 };
 
 const solicitarSabores = (cantidad) => {
