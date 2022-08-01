@@ -230,6 +230,4 @@ function ejecutarPrograma() {
     resetearPedido();
 }
 
-boton.onclick = () => {
-    ejecutarPrograma();
-}
+boton.onclick = ejecutarPrograma;
