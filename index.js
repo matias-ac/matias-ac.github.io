@@ -76,11 +76,18 @@ const mensajePago = `Modalidad de pago:
 - Opción 1: Efectivo
 - Opción 2: Crédito`;
 
-const mensajePromos = `Tenemos las siguientes promos bancarias:
-- Opción 1: ${promocionesBancarias[0].mostrarInfo()}
-- Opcion 2: ${promocionesBancarias[1].mostrarInfo()}
-- Opcion 3: ${promocionesBancarias[2].mostrarInfo()}
-- Opcion 4: ${promocionesBancarias[3].mostrarInfo()}`;
+const generarMenuPromociones = (listaDePromociones) => {
+    let mensajeDelMenu = 'Tenemos las siguientes promociones bancarias:';
+    let opcion = 0;
+    const copiaDeLista = listaDePromociones;
+    copiaDeLista.forEach(promo => {
+        opcion++;
+        mensajeDelMenu += '\nOpcion ' + opcion + ': '+ promo.mostrarInfo();
+    })
+    return mensajeDelMenu;
+}
+
+const mensajePromos = generarMenuPromociones(promocionesBancarias);
 
 const saludarUsuario = () => {
     alert (mensajeBienvenida);
