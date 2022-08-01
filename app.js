@@ -2,7 +2,6 @@ const app = document.getElementById('app');
 const boton = document.getElementById('boton-iniciar');
 
 class PromoBancaria {
-
     constructor(banco, descuento) {
         this.banco = banco;
         this.promocion = descuento;
@@ -14,46 +13,15 @@ class PromoBancaria {
 }
 
 class Empanada {
-
     constructor(nombre, sigla) {
         this.nombre = nombre;
         this.sigla = sigla;
     }
-
+    
     mostrarInfo() {
         return `${this.nombre} (${this.sigla})`;
     }
 }
-
-const precioUnidad = 250;
-const descuentoMediaDocena = 0.10;
-const descuentoDocena = 0.15;
-const cantidadDeOpciones = 6;
-
-const promocionesBancarias = [
-    new PromoBancaria('Banco Nación', 0.15),
-    new PromoBancaria('Banco Francés', 0.05),
-    new PromoBancaria('Banco HSBC', 0.05),
-    new PromoBancaria('Mercado Pago', 0.10),
-];
-
-const listaSabores = [
-    new Empanada('Carne Suave', 'CS'),
-    new Empanada('Carne Picante', 'CP'),
-    new Empanada('Verdura', 'VE'),
-    new Empanada('Jamón y Queso', 'JQ'),
-    new Empanada('Roquefort y Jamón', 'RJ'),
-    new Empanada('Pollo', 'PO'),
-];
-
-const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
-
-Precios:
-- Por unidad $${precioUnidad}.
-- Llevando 6 o más ${descuentoMediaDocena * 100}% off.
-- Llevando 12 o más ${descuentoDocena * 100}% off.
-
-Elegí a continuación la cantidad y los sabores.`;
 
 const generarMenuDeSabores = (listaDeSabores) => {
     let mensajeDelMenu = 'Menu:';
@@ -66,16 +34,6 @@ const generarMenuDeSabores = (listaDeSabores) => {
     return mensajeDelMenu;
 };
 
-const mensajeMenu = generarMenuDeSabores(listaSabores);
-
-const mensajeSolicitarEmpanada = `${mensajeMenu}
-
-Ingresa el número de opción elegida:`;
-
-const mensajePago = `Modalidad de pago:
-- Opción 1: Efectivo
-- Opción 2: Crédito`;
-
 const generarMenuPromociones = (listaDePromociones) => {
     let mensajeDelMenu = 'Tenemos las siguientes promociones bancarias:';
     let opcion = 0;
@@ -85,7 +43,38 @@ const generarMenuPromociones = (listaDePromociones) => {
         mensajeDelMenu += '\nOpcion ' + opcion + ': '+ promo.mostrarInfo();
     })
     return mensajeDelMenu;
-}
+};
+
+const precioUnidad = 250;
+const descuentoMediaDocena = 0.10;
+const descuentoDocena = 0.15;
+const cantidadDeOpciones = 6;
+
+const listaSabores = [
+    new Empanada('Carne Suave', 'CS'),
+    new Empanada('Carne Picante', 'CP'),
+    new Empanada('Verdura', 'VE'),
+    new Empanada('Jamón y Queso', 'JQ'),
+    new Empanada('Roquefort y Jamón', 'RJ'),
+    new Empanada('Pollo', 'PO'),
+];
+
+const promocionesBancarias = [
+    new PromoBancaria('Banco Nación', 0.15),
+    new PromoBancaria('Banco Francés', 0.05),
+    new PromoBancaria('Banco HSBC', 0.05),
+    new PromoBancaria('Mercado Pago', 0.10),
+];
+
+const mensajeMenu = generarMenuDeSabores(listaSabores);
+
+const mensajeSolicitarEmpanada = `${mensajeMenu}
+
+Ingresa el número de opción elegida:`;
+
+const mensajePago = `Modalidad de pago:
+- Opción 1: Efectivo
+- Opción 2: Crédito`;
 
 const mensajePromos = generarMenuPromociones(promocionesBancarias);
 
@@ -130,7 +119,6 @@ const verificarOpcion = (opcion, cantidadDeOpciones) => {
         false;
 };
 
-// let pedidoUsuario = `Los sabores elegidos son:`;
 let pedidoUsuario = [];
 
 const mostrarPedidoEnConsola = (pedido) => {
@@ -141,28 +129,17 @@ const mostrarPedidoEnConsola = (pedido) => {
     console.log(mensaje);
 };
 
-// const imprimirPedidoUsuario = () => {
-
-// }
-
-// const ingresarSabor = (sabor) => {
-//     pedidoUsuario.push(sabor);
-// };
-
 const agregarOpcionAlPedido = (opcion) => {
     // necesita restar 1 porque los indices del array empiezan en 0
     // y las cantidades fisicas las contamos desde 1 unidad en adelante
     const indice = opcion - 1;
-    // ingresarSabor(listaSabores[indice].nombre);
     pedidoUsuario.push(listaSabores[indice].nombre);
 };
 
 const solicitarSabores = (cantidad) => {
-    // let saboresSolicitados = 0;
     for (let i = 0; i < cantidad; i++) {
         let opcion = solicitarOpcion(mensajeSolicitarEmpanada, cantidadDeOpciones);
         agregarOpcionAlPedido(opcion);
-        // saboresSolicitados++;
     }
 };
 
@@ -234,18 +211,22 @@ const resetearPedido = () => {
 };
 
 function ejecutarPrograma() {
+
     saludarUsuario();
     mostrarMenu();
     const cantidad = solicitarCantidad();
     console.log('La cantidad ingresada fue de: ' + cantidad);
+
     solicitarSabores(cantidad);
     mostrarPedidoEnConsola(pedidoUsuario);
+
     const totalSinDescuentos = calcularTotal(cantidad);
     console.log('El total sin descuentos es de: ' + totalSinDescuentos);
     const totalSegunCantidad = calcularDescuentoCantidad(cantidad, totalSinDescuentos);
     console.log('El total según la cantidad que lleva es: ' + totalSegunCantidad);
     mostrarTotal(cantidad);
     procesarPago(totalSegunCantidad);
+
     finalizarPedido();
     resetearPedido();
 }
