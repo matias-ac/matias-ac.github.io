@@ -66,6 +66,15 @@ const promocionesBancarias = [
     new PromoBancaria('Mercado Pago', 0.10),
 ];
 
+const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
+
+Precios:
+- Por unidad $${precioUnidad}.
+- Llevando 6 o más ${descuentoMediaDocena * 100}% off.
+- Llevando 12 o más ${descuentoDocena * 100}% off.
+
+Elegí a continuación la cantidad y los sabores.`;
+
 const mensajeMenu = generarMenuDeSabores(listaSabores);
 
 const mensajeSolicitarEmpanada = `${mensajeMenu}
