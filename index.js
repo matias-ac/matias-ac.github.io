@@ -12,6 +12,19 @@ class PromoBancaria {
         return `${this.banco} ${(this.promocion * 100)}%`;
     }
 }
+
+class Empanada {
+
+    constructor(nombre, sigla) {
+        this.nombre = nombre;
+        this.sigla = sigla;
+    }
+
+    mostrarInfo() {
+        return `${this.nombre} (${this.sigla})`;
+    }
+}
+
 const precioUnidad = 250;
 const descuentoMediaDocena = 0.10;
 const descuentoDocena = 0.15;
@@ -22,8 +35,16 @@ const promocionesBancarias = [
     new PromoBancaria('Banco Francés', 0.05),
     new PromoBancaria('Banco HSBC', 0.05),
     new PromoBancaria('Mercado Pago', 0.10),
-]
-const sabores = ['Carne Suave', 'Carne Picante', 'Verdura', 'Jamón y Queso', 'Roquefort y Jamón', 'Pollo'];
+];
+
+const listaSabores = [
+    new Empanada('Carne Suave', 'CS'),
+    new Empanada('Carne Picante', 'CP'),
+    new Empanada('Verdura', 'VE'),
+    new Empanada('Jamón y Queso', 'JQ'),
+    new Empanada('Roquefort y Jamón', 'RJ'),
+    new Empanada('Pollo', 'PO'),
+];
 
 const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
 
@@ -34,20 +55,26 @@ Precios:
 
 Elegí a continuación la cantidad y los sabores.`;
 
-const mensajeMenu = `Menu:
+const generarMenuDeSabores = (listaDeSabores) => {
+    let mensajeDelMenu = 'Menu:';
+    let opcion = 0;
+    const copiaDeLista = listaDeSabores;
+    copiaDeLista.forEach(sabor => {
+        opcion++;
+        mensajeDelMenu += '\nOpcion ' + opcion + ': '+ sabor.mostrarInfo();
+    })
+    return mensajeDelMenu;
+};
 
-1. ${sabores[0]} (CS)    4. Jamón y Queso (JQ)
-2. Carne Picante (CP)  5. Roquefort y Jamón (RJ)
-3. Verdura (VE)        6. Pollo (PO)
+const mensajeMenu = generarMenuDeSabores(listaSabores);
 
-`;
+const mensajeSolicitarEmpanada = `${mensajeMenu}
 
-const mensajeSolicitarEmpanada = `${mensajeMenu} Ingresa el número de opción elegida:`
+Ingresa el número de opción elegida:`;
 
 const mensajePago = `Modalidad de pago:
 - Opción 1: Efectivo
 - Opción 2: Crédito`;
-
 
 const mensajePromos = `Tenemos las siguientes promos bancarias:
 - Opción 1: ${promocionesBancarias[0].mostrarInfo()}
@@ -105,8 +132,9 @@ const ingresarSabor = (sabor) => {
 
 const agregarOpcionAlPedido = (opcion) => {
     // necesita restar 1 porque los indices del array empiezan en 0
+    // y las cantidades fisicas las contamos desde 1 unidad en adelante
     const indice = opcion - 1;
-    ingresarSabor(sabores[indice]);
+    ingresarSabor(listaSabores[indice].mostrarInfo());
 };
 
 const solicitarSabores = (cantidad) => {
