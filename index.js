@@ -17,11 +17,6 @@ const descuentoMediaDocena = 0.10;
 const descuentoDocena = 0.15;
 const cantidadDeOpciones = 6;
 
-const promoBancoNacion = 0.15;
-const promoBancoFrances = 0.05;
-const promoBancoHSBC = 0.05;
-const promoMercadoPago = 0.10;
-
 const promocionesBancarias = [
     new PromoBancaria('Banco Nación', 0.15),
     new PromoBancaria('Banco Francés', 0.05),
@@ -52,6 +47,7 @@ const mensajeSolicitarEmpanada = `${mensajeMenu} Ingresa el número de opción e
 const mensajePago = `Modalidad de pago:
 - Opción 1: Efectivo
 - Opción 2: Crédito`;
+
 
 const mensajePromos = `Tenemos las siguientes promos bancarias:
 - Opción 1: ${promocionesBancarias[0].mostrarInfo()}
@@ -154,13 +150,13 @@ const procesarPagoEfectivo = (total) => {
 const calcularDescuentoBancario = (opcion, total) => {
     let resultado;
     if (opcion === 1) {
-        resultado = aplicarDescuento(total, promoBancoNacion);
+        resultado = aplicarDescuento(total, promocionesBancarias[0].promocion);
     } else if (opcion === 2) {
-        resultado = aplicarDescuento(total, promoBancoFrances);
+        resultado = aplicarDescuento(total, promocionesBancarias[1].promocion);
     } else if (opcion === 3) {
-        resultado = aplicarDescuento(total, promoBancoHSBC);
+        resultado = aplicarDescuento(total, promocionesBancarias[2].promocion);
     } else if (opcion === 4) {
-        resultado = aplicarDescuento(total, promoMercadoPago);
+        resultado = aplicarDescuento(total, promocionesBancarias[3].promocion);
     }
     return resultado;
 };
