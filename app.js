@@ -116,8 +116,6 @@ const solicitarCantidad = () => {
     return cantidad;
 };
 
-let pedidoUsuario = `Los sabores elegidos son:`;
-
 const solicitarOpcion = (mensaje, cantidad) => {
     let opcion = Number(parseInt(prompt(`${mensaje}`)));
     while (!verificarOpcion(opcion, cantidad)) {
@@ -132,24 +130,39 @@ const verificarOpcion = (opcion, cantidadDeOpciones) => {
         false;
 };
 
-const ingresarSabor = (sabor) => {
-    pedidoUsuario += `
-    - ${sabor}`;
+// let pedidoUsuario = `Los sabores elegidos son:`;
+let pedidoUsuario = [];
+
+const mostrarPedidoEnConsola = (pedido) => {
+    let mensaje = 'Los sabores elegidos son:';
+    pedido.forEach(item => {
+        mensaje += '\n- ' + item;
+    })
+    console.log(mensaje);
 };
+
+// const imprimirPedidoUsuario = () => {
+
+// }
+
+// const ingresarSabor = (sabor) => {
+//     pedidoUsuario.push(sabor);
+// };
 
 const agregarOpcionAlPedido = (opcion) => {
     // necesita restar 1 porque los indices del array empiezan en 0
     // y las cantidades fisicas las contamos desde 1 unidad en adelante
     const indice = opcion - 1;
-    ingresarSabor(listaSabores[indice].mostrarInfo());
+    // ingresarSabor(listaSabores[indice].nombre);
+    pedidoUsuario.push(listaSabores[indice].nombre);
 };
 
 const solicitarSabores = (cantidad) => {
-    let saboresSolicitados = 0;
+    // let saboresSolicitados = 0;
     for (let i = 0; i < cantidad; i++) {
         let opcion = solicitarOpcion(mensajeSolicitarEmpanada, cantidadDeOpciones);
-        agregarOpcionAlPedido(opcion, pedidoUsuario);
-        saboresSolicitados++;
+        agregarOpcionAlPedido(opcion);
+        // saboresSolicitados++;
     }
 };
 
@@ -217,7 +230,7 @@ const finalizarPedido = () => {
 };
 
 const resetearPedido = () => {
-    pedidoUsuario = `Los sabores elegidos son:`;
+    pedidoUsuario = [];
 };
 
 function ejecutarPrograma() {
@@ -226,7 +239,7 @@ function ejecutarPrograma() {
     const cantidad = solicitarCantidad();
     console.log('La cantidad ingresada fue de: ' + cantidad);
     solicitarSabores(cantidad);
-    console.log(pedidoUsuario);
+    mostrarPedidoEnConsola(pedidoUsuario);
     const totalSinDescuentos = calcularTotal(cantidad);
     console.log('El total sin descuentos es de: ' + totalSinDescuentos);
     const totalSegunCantidad = calcularDescuentoCantidad(cantidad, totalSinDescuentos);
