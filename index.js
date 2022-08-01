@@ -1,6 +1,17 @@
 const app = document.getElementById('app');
 const boton = document.getElementById('boton-iniciar');
 
+class PromoBancaria {
+
+    constructor(banco, descuento) {
+        this.banco = banco;
+        this.promocion = descuento;
+    }
+
+    mostrarInfo() {
+        return `${this.banco} ${(this.promocion * 100)}%`;
+    }
+}
 const precioUnidad = 250;
 const descuentoMediaDocena = 0.10;
 const descuentoDocena = 0.15;
@@ -11,6 +22,12 @@ const promoBancoFrances = 0.05;
 const promoBancoHSBC = 0.05;
 const promoMercadoPago = 0.10;
 
+const promocionesBancarias = [
+    new PromoBancaria('Banco Nación', 0.15),
+    new PromoBancaria('Banco Francés', 0.05),
+    new PromoBancaria('Banco HSBC', 0.05),
+    new PromoBancaria('Mercado Pago', 0.10),
+]
 const sabores = ['Carne Suave', 'Carne Picante', 'Verdura', 'Jamón y Queso', 'Roquefort y Jamón', 'Pollo'];
 
 const mensajeBienvenida = `¡Bienvenido a Empanadas Online!
@@ -37,10 +54,10 @@ const mensajePago = `Modalidad de pago:
 - Opción 2: Crédito`;
 
 const mensajePromos = `Tenemos las siguientes promos bancarias:
-- Opción 1: Banco Nación ${promoBancoNacion * 100}%
-- Opción 2: Banco Francés ${promoBancoFrances * 100}%
-- Opción 3: Banco HSBC ${promoBancoHSBC * 100}%
-- Opción 4: MercadoPago ${promoMercadoPago * 100}%`;
+- Opción 1: ${promocionesBancarias[0].mostrarInfo()}
+- Opcion 2: ${promocionesBancarias[1].mostrarInfo()}
+- Opcion 3: ${promocionesBancarias[2].mostrarInfo()}
+- Opcion 4: ${promocionesBancarias[3].mostrarInfo()}`;
 
 const saludarUsuario = () => {
     alert (mensajeBienvenida);
