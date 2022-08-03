@@ -23,19 +23,26 @@ header {
     align-items: center;
 }
 
-header div {
+header a {
     color: white;
     padding: 0px 10px;
+    text-decoration: none;
 }
 
 ul {
     display: flex;
 }
 
-li {
+ul button {
     list-style: none;
+    margin: 15px;
     padding: 0px 10px;
     color: white;
+}
+
+ul button:hover {
+    background-color: #D7A86E;
+    color: black;
 }
 
 main {
