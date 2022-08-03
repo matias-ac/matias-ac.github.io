@@ -1,61 +1,41 @@
 # Curso JavaScript Coderhouse
 
-## Clase 07 - Funciones de orden superior
+## Clase 08 - DOM
 
-### Primera entrega del proyecto final
+### Interactuar con HTML
 
 ---
 
 **Tipo de desafío:** 
-Proyecto Final - Primera Entrega.
+Desafío complementario.
 
 **Formato:** 
-Página HTML y código fuente en JavaScript. Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por "claseApellido".
+Página HTML y código fuente en JavaScript. Debe identificar el apellido del estudiante en el nombre de archivo comprimido por “claseApellido”. 
 
 **Sugerencia:**
-Si bien, por el momento solo podemos hacer entradas con `prompt()` y salidas con `alert()` o `console.log()`, es suficiente para empezar a pensar el proceso a simular en términos de entradas, variables, estructuras, funciones, métodos y salidas. Verificar Rúbrica
+Generalmente, identificamos a un único elemento del DOM con el atributo ***id*** y a un conjunto asociado por ***class***.
 
 ---
 
-**>> Objetivos Generales:**
+**>> Consigna:**
+Traslada al proyecto integrador el concepto de objetos, visto en la clase de hoy. En función del tipo de simulador que hayas elegido, deberás:
 
-- Codificar la funcionalidad inicial del simulador.
+- Crear elementos manipulando el DOM a partir de la informaciòn de tus objetos.
 
-- Identificar el flujo de trabajo del script en términos de captura de entradas ingresadas por el usuario, procesamiento esencial del simulador y notificación de resultados en forma de salida.
+- Modificar etiquetas existentes en función del resultado de operaciones.
 
 
-**>> Objetivos Específicos:**
+**>> Aspectos a incluir en el entregable:**
+Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta `<script src="js/miarchivo.js"></script>`, que incluya la definición de un algoritmo en JavaScript que opere sobre el DOM, modificando, agregando o eliminado elementos.
 
-- Capturar entradas mediante `prompt()`.
 
-- Declarar variables y objetos necesarios para simular el proceso seleccionado.
+**>> Ejemplo:**
 
-- Crear funciones y/o métodos para realizar operaciones (suma, resta, concatenación, división, porcentaje, etc.).
+- Podemos crear elementos HTML en función del listado de nuestros objetos identificados en la clase 6.
 
-- Efectuar una salida, que es el resultado de los datos procesados, la cual puede hacerse por `alert()` o `console.log()`.
+- Establecer un mensaje de bienvenida aleatorio usando un array de mensajes.
 
----
-
-**>> Para tener en cuenta:**
-
-- La estructura hace referencia a el html y css, correspondientes al armado de la página general, pero que el JS que se evalúa, aún no está interactuando con ella.
-
----
-
-**>> Se debe entregar:**
-
-- Estructura HTML del proyecto. 
-
-- Variables de JS necesarias. 
-
-- Funciones esenciales del proceso a simular.
-
-- Objetos de JS.
-
-- Arrays.
-
-- Métodos de búsqueda y filtrado sobre el Array.
-
+- Capturar una o más entradas por `prompt()` y mostrarlas en el HTML, modificando el DOM.
 
 ---
 
