@@ -4,27 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Empanadas Online</title>
 </head>
 <body>
-    <header>
-        <a href="./index.html">¡Empanadas Online!</a>
-        <nav>
-            <ul>
-                <button id="menu">Menú</button>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div id="app">
-            <button id="boton-iniciar">Iniciar Pedido</button>
-        </div>
-    </main>
-    <footer>
-        <p>Copyright</p>
-    </footer>
-    <script src="./scripts/scripts.js"></script>
+    <div id="app">
+        <header>
+            <div id="logo">
+                <a href="./index.html">¡Empanadas Online!</a>
+            </div>
+            <nav id="nav">
+                <button id="boton-iniciar">
+                    <a href="./pages/pedido.html">Iniciar pedido</a>
+                </button>
+                <ul id="nav-secciones">
+                    <li>
+                        <a href="#menu-empanadas">Empanadas</a>
+                    </li>
+                    <li>Sucursales</li>
+                    <li>Franquicias</li>
+                </ul>
+            </nav>
+        </header>
+        <section id="nosotros">
+            <h1>¡Bienvenido a Empanadas Online!</h1>
+            <p>
+                Hacemos las mejores empanadas desde 2009. Desde entonces, nos hemos dedicado a la fabricación y comercialización de uno de los productos más consumidos en la gastronomía argentina. Nuestras empanadas se caracterizan por ser elaboradas con la más moderna tecnología en instalaciones propias de la empresa y selección de materias primas de primera calidad, teniendo como resultado un producto distinguido por su exquisito sabor.
+            </p>
+            <div id="imagen">
+                <img src="./img/pie-4207496_1280.webp" alt="imagen de una empanada">
+            </div>
+        </section>
+        <section id="menu-empanadas">
+            <h2>Empanadas clásicas</h2>
+            <div id="menu-contenedor">
+
+            </div>
+        </section>
+        <footer>
+            <div>
+                <a href="./index.html">Home</a>
+            </div>
+            <div>
+                <p>Copyright</p>
+            </div>
+            <div>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Email</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <script src="./data/data.js"></script>
+    <script src="./scripts/menu.js"></script>
     <script src="./app.js"></script>
 </body>
 </html>
