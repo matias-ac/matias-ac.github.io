@@ -41,6 +41,6 @@ Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta `<script src="js
 
 ### Descripción de la tarea desarrollada
 
-El programa consiste en procesar un pedido de empanadas de un usuario, solicitándole que ingrese la cantidad y sabores.
+El programa consiste en procesar un pedido de empanadas de un usuario, solicitándole que ingrese la cantidad de cada sabor y las agregue al pedido.
 
-También posee descuentos por llevar distintas cantidades y descuentos adicionales si se paga con algunas de las opciones de tarjeta de crédito disponibles.
+Al finalizar, se saluda al usuario y se recarga la página para comenzar un nuevo pedido.
