@@ -1,46 +1,37 @@
 # Curso JavaScript Coderhouse
 
-## Clase 08 - DOM
+## Clase 09 - Eventos
 
-### Interactuar con HTML
+### Incorporar eventos
 
 ---
 
 **Tipo de desafío:** 
-Desafío complementario.
+Desafío entregable.
 
 **Formato:** 
 Página HTML y código fuente en JavaScript. Debe identificar el apellido del estudiante en el nombre de archivo comprimido por “claseApellido”. 
 
 **Sugerencia:**
-Generalmente, identificamos a un único elemento del DOM con el atributo ***id*** y a un conjunto asociado por ***class***.
+Es posible asociar más de un evento a un elemento y se pueden emplear función comunes, anónimas y arrow para los manejadores de eventos.
 
 ---
 
 **>> Consigna:**
-Traslada al proyecto integrador el concepto de objetos, visto en la clase de hoy. En función del tipo de simulador que hayas elegido, deberás:
-
-- Crear elementos manipulando el DOM a partir de la informaciòn de tus objetos.
-
-- Modificar etiquetas existentes en función del resultado de operaciones.
+Con lo que vimos sobre DOM, ahora puedes sumarlo a tu proyecto, para interactuar entre los elementos HTML y JS. Es decir, asociar eventos que buscamos controlar sobre los elementos de la interfaz de nuestro simulador.
 
 
 **>> Aspectos a incluir en el entregable:**
-Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta `<script src="js/miarchivo.js"></script>`, que incluya la definición de un algoritmo en JavaScript que opere sobre el DOM, modificando, agregando o eliminado elementos.
+Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta <script src="js/miarchivo.js"></script>, que incluya la definición de un algoritmo en JavaScript que opere sobre el DOM manejando eventos.
 
 
 **>> Ejemplo:**
 
-- Podemos crear elementos HTML en función del listado de nuestros objetos identificados en la clase 6.
+- Cuando el usuario completa algún dato, por ejemplo cantidad de cuotas, se captura ese dato y se agregan elementos al DOM mediante JS.
 
-- Establecer un mensaje de bienvenida aleatorio usando un array de mensajes.
-
-- Capturar una o más entradas por `prompt()` y mostrarlas en el HTML, modificando el DOM.
+- Capturar la tecla ENTER para confirmar alguna acción.
 
 ---
 
 ### Descripción de la tarea desarrollada
 
-El programa consiste en procesar un pedido de empanadas de un usuario, solicitándole que ingrese la cantidad de cada sabor y las agregue al pedido.
-
-Al finalizar, se saluda al usuario y se recarga la página para comenzar un nuevo pedido.
