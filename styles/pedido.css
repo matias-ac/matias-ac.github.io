@@ -1,0 +1,90 @@
+#menu {
+    background-color: #FFEBC1;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#opciones {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 50px;
+}
+
+input {
+    border: none;
+    background-color: white;
+    height: 20px;
+    padding: 5px;
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.301);
+}
+
+.sabor {
+    width: 200px;
+}
+
+.cantidad {
+    width: 50px;
+}
+
+button {
+    background-color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+#boton-restar, #boton-sumar {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.301);
+}
+
+#boton-agregar, #boton-finalizar {
+    height: 40px;
+    width: 150px;
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.301);
+    align-self: center;
+    margin: 30px;
+}
+
+.contenedor-opcion {
+    margin: 10px;
+}
+
+#pedido {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 50px;
+    padding: 50px;
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.301);
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#finalizar {
+    display: flex;
+    flex-direction: column;
+}
+
+#mensaje-finalizar {
+    background-color: white;
+    color: black;
+    width: 350px;
+    padding: 50px;
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.301);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 25px;
+}
+
