@@ -6,6 +6,13 @@
     align-items: center;
 }
 
+#contenedor-pedido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 #opciones {
     display: flex;
     flex-direction: column;
@@ -39,7 +46,7 @@ button:hover {
     color: white;
 }
 
-#boton-restar, #boton-sumar {
+.boton-restar, .boton-sumar {
     width: 20px;
     height: 20px;
     margin: 10px;
@@ -59,6 +66,10 @@ button:hover {
 }
 
 #pedido {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
     background-color: white;
     width: 350px;
     height: 350px;
@@ -66,10 +77,37 @@ button:hover {
     padding: 50px;
     box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.301);
     font-size: 20px;
-    justify-content: center;
-    align-items: center;
+}
+
+#carrito {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+#sabores-elegidos {
+    width: 200px;
+}
+
+#cantidades-elegidas {
+    width: 100px;
+    text-align: end;
+}
+
+#pedido button {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 150px;
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.301);
+    align-self: center;
+    margin: 30px;
+}
+
+#pedido button:hover {
+    background-color: white;
+    color: black;
 }
 
 #finalizar {
@@ -77,7 +115,7 @@ button:hover {
     flex-direction: column;
 }
 
-#mensaje-finalizar {
+#contenedor-pago {
     background-color: white;
     color: black;
     width: 350px;

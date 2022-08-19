@@ -2,33 +2,41 @@ const $ = document.querySelector.bind(document);
 const $menu = $('#menu');
 const $opciones = $('#opciones');
 const $pedido = $('#pedido');
-const $finalizar = $('#finalizar');
+const $contenedorFinalizar = $('#finalizar');
 const $sabor = $('#sabor')
 const $cantidad = $('#cantidad');
 const $botonSumar = $('#boton-sumar');
 const $botonRestar = $('#boton-restar');
+const $botonProcesarPedido = $('#procesar-pedido');
 const $botonFinalizar = $('#boton-finalizar');
+const $contenedorDePago = $('#contenedor-pago');
 
 
 const botonAgregar = document.createElement('button');
 botonAgregar.id = 'boton-agregar';
 botonAgregar.textContent = 'Agregar Empanadas';
 
+const botonFinalizar = document.createElement('button');
+botonFinalizar.id = 'boton-finalizar';
+botonFinalizar.textContent = 'Finalizar pedido';
 
-const crearInputSabor = (value) => {
+
+const crearInputSabor = (value, id) => {
     const sabor = document.createElement('input');
     sabor.disabled = true;
     sabor.type = 'text';
     sabor.className = 'sabor';
+    sabor.id = id;
     sabor.value = value;
     return sabor;
 };
 
-const crearInputCantidad = (value) => {
+const crearInputCantidad = (value, id) => {
     const cantidad = document.createElement('input');
     cantidad.disabled = true;
     cantidad.type = 'number';
     cantidad.className = 'cantidad';
+    cantidad.id = id;
     cantidad.value = value;
     return cantidad;
 };
@@ -36,55 +44,53 @@ const crearInputCantidad = (value) => {
 const crearBotonSumar = () => {
     const boton = document.createElement('button');
     boton.textContent = '+';
-    boton.id = 'boton-sumar';
+    boton.className = 'boton-sumar';
     return boton;
 };
 
 const crearBotonRestar = () => {
     const boton = document.createElement('button');
     boton.textContent = '-';
-    boton.id = 'boton-restar';
+    boton.className = 'boton-restar';
     return boton;
 };
 
-const crearOpcion = () => {
-
-};
-
-const agregarOpcionAlMenuOpciones = (value) => {
+const agregarOpcionAlMenuOpciones = (value, id) => {
     let cantidadIngresada = 0;
 
     const contenedor = document.createElement('div');
     contenedor.className = 'contenedor-opcion';
-    const cantidad = crearInputCantidad(cantidadIngresada);
+    const cantidad = crearInputCantidad(cantidadIngresada, `cantidad${id}`);
     const botonSumar = crearBotonSumar();
     const botonRestar = crearBotonRestar();
 
     contenedor.append(
-        crearInputSabor(value),
+        crearInputSabor(value, `sabor${id}`),
         cantidad,
         botonRestar,
         botonSumar
     );
 
-    botonSumar.onclick = () => {
+    botonSumar.addEventListener('click',() => {
         cantidadIngresada++;
         cantidad.value = cantidadIngresada;
-    };
+    });
 
-    botonRestar.onclick = () => {
+    botonRestar.addEventListener('click', () => {
         if (cantidadIngresada > 0) {
             cantidadIngresada--;
             cantidad.value = cantidadIngresada;
         }
-    };
+    });
 
     return contenedor;
 };
 
 const crearMenuDeOpciones = (listaDeEmpanadas) => {
+    let id = 0;
     listaDeEmpanadas.forEach(sabor => {
-        const opcion = agregarOpcionAlMenuOpciones(sabor.nombre);
+        id++;
+        const opcion = agregarOpcionAlMenuOpciones(sabor.nombre, id);
         $opciones.append(opcion);
     });
 };
@@ -94,57 +100,84 @@ crearMenuDeOpciones(listaSabores);
 $opciones.append(botonAgregar);
 
 
-let cantidadTotal = 0;
+const carrito = [];
 
-const procesarPedido = () => {
-    let cantidadDelPedido = 0;
-    const cantidades = document.querySelectorAll('.cantidad');
-    cantidades.forEach(opcion => {
-        cantidadDelPedido += Number(opcion.value);
+const agregarSaboresAlCarrito = () => {
+    const saboresIngresados = document.querySelectorAll('.sabor');
+    let id = 0;
+    saboresIngresados.forEach(sabor => {
+        id++;
+        const cantidad = Number(document.querySelector(`#cantidad${id}`).value);
+
+        if (cantidad > 0) {
+            carrito.push({sabor: sabor.value, cantidad: cantidad});
+        }
     })
-    return cantidadDelPedido;
 };
 
+const $carrito = $('#carrito');
+const $saboresElegidos = $('#sabores-elegidos');
+const $cantidadesElegidas = $('#cantidades-elegidas');
 
-botonAgregar.onclick = () => {
-    cantidadTotal = procesarPedido();
-    console.log(cantidadTotal);
+botonAgregar.addEventListener('click', () => {
 
-    cantidadDelPedido.textContent = `Vas a llevar ${cantidadTotal} empanadas.`;
-    total.textContent = `Tu total es de $${cantidadTotal * precioUnidad}.`;
-    
-    $pedido.append(cantidadDelPedido, total);
-}
+    if (carrito.length === 0) {
+        agregarSaboresAlCarrito();
 
+        carrito.forEach(producto => {
+            const texto = document.createElement('p');
+            texto.textContent = producto.sabor;
+            $saboresElegidos.append(texto);
 
-const cantidadDelPedido = document.createElement('p');
-cantidadDelPedido.textContent = `Vas a llevar ${cantidadTotal} empanadas.`;
+            const cantidad = document.createElement('p');
+            cantidad.textContent = `x ${producto.cantidad}`;
+            $cantidadesElegidas.append(cantidad);
+        })
+    }
+});
 
 const total = document.createElement('p');
-total.textContent = `Tu total es de $${cantidadTotal * precioUnidad}.`
+let cantidadDelPedido = 0;
+let clickBotonIrAPagar = 0;
 
-$pedido.append(cantidadDelPedido, total);
+$botonProcesarPedido.addEventListener('click', () => {
 
+    clickBotonIrAPagar++;
 
-const resetearValores = () => {
+    carrito.forEach(producto => {
+        const cantidad = producto.cantidad;
+        cantidadDelPedido += cantidad;
+    })
 
-};
+    if (clickBotonIrAPagar === 1) {
+        if (cantidadDelPedido > 0) {
+            const mensajeFinal = document.createElement('p');
+            mensajeFinal.textContent = `Tu total es de: $ ${cantidadDelPedido * precioUnidad}`;
+            $contenedorDePago.append(mensajeFinal);
+            $contenedorDePago.append(botonFinalizar);
+        } else {
+            clickBotonIrAPagar = 0;
+        }
+    }
+});
 
 const finalizarPedido = () => {
+
     const mensaje = document.createElement('p');
     mensaje.textContent = '¡Gracias por tu compra!';
     mensaje.id = 'mensaje-finalizar';
-    $finalizar.append(mensaje);
-}
+    $contenedorFinalizar.append(mensaje);
+};
+
 
 let clickBotonFinalizar = 0;
-$botonFinalizar.onclick = () => {
+
+botonFinalizar.addEventListener('click', () => {
+
     clickBotonFinalizar++;
-    cantidadDelPedido.textContent = `Vas a llevar ${cantidadTotal} empanadas.`;
-    total.textContent = `Tu total es de $${cantidadTotal * precioUnidad}.`
-    console.log(cantidadTotal)
+
     if (clickBotonFinalizar === 1) {
-        if (cantidadTotal > 0) {
+        if (cantidadDelPedido > 0) {
             finalizarPedido();
             setTimeout(() => {
                 window.location.reload();
@@ -153,4 +186,4 @@ $botonFinalizar.onclick = () => {
             clickBotonFinalizar = 0;
         }
     }
-}
+});
