@@ -1,37 +1,46 @@
 # Curso JavaScript Coderhouse
 
-## Clase 09 - Eventos
+## Clase 11 - Workshop I
 
-### Incorporar eventos
+### Segunda entrega del proyecto final
+
+---
 
 ---
 
 **Tipo de desafío:** 
-Desafío entregable.
+Proyecto Final - Segunda Entrega.
 
 **Formato:** 
-Página HTML y código fuente en JavaScript. Debe identificar el apellido del estudiante en el nombre de archivo comprimido por “claseApellido”. 
+Página HTML y código fuente en JavaScript. Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por “claseApellido”. 
 
 **Sugerencia:**
-Es posible asociar más de un evento a un elemento y se pueden emplear función comunes, anónimas y arrow para los manejadores de eventos.
+En la segunda entrega buscamos programar el código esencial para garantizar dinamismo en el HTML con JavaScript. 
+
+En relación a la primer entrega, ya no usamos `alert()` como salida y `promt()` como entrada, ahora modificamos el DOM para las salidas y capturamos los eventos del usuario sobre inputs y botones para las entradas. Verificar Rúbrica.
 
 ---
 
-**>> Consigna:**
-Con lo que vimos sobre DOM, ahora puedes sumarlo a tu proyecto, para interactuar entre los elementos HTML y JS. Es decir, asociar eventos que buscamos controlar sobre los elementos de la interfaz de nuestro simulador.
+**>> Objetivos Generales:**
+
+- Codificar funciones de procesos esenciales y notificación de resultados por HTML, añadiendo interacción al simulador. 
+
+- Ampliar y refinar el flujo de trabajo del script en términos de captura de eventos, procesamiento del simulador y notificación de resultados en forma de salidas por HTML, modificando el DOM.
 
 
-**>> Aspectos a incluir en el entregable:**
-Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta <script src="js/miarchivo.js"></script>, que incluya la definición de un algoritmo en JavaScript que opere sobre el DOM manejando eventos.
+**>> Objetivos Específicos:**
 
+- Definir eventos a manejar y su funciòn de respuesta.
 
-**>> Ejemplo:**
+- Modificar el DOM, ya sea para definir elementos al cargar la página o para realizar salidas de un procesamiento.
 
-- Cuando el usuario completa algún dato, por ejemplo cantidad de cuotas, se captura ese dato y se agregan elementos al DOM mediante JS.
+- Almacenar datos (clave-valor) en el Storage y recuperarlos.
 
-- Capturar la tecla ENTER para confirmar alguna acción.
 
 ---
 
-### Descripción de la tarea desarrollada
+**>> Se debe entregar:**
 
+- Implementación con uso de JSON y Storage. 
+
+- Modificación del DOM y detección de eventos de usuario.
