@@ -136,7 +136,6 @@ botonAgregar.addEventListener('click', () => {
     }
 });
 
-const total = document.createElement('p');
 let cantidadDelPedido = 0;
 let clickBotonIrAPagar = 0;
 
