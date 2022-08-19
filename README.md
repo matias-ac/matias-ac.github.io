@@ -6,8 +6,6 @@
 
 ---
 
----
-
 **Tipo de desafío:** 
 Proyecto Final - Segunda Entrega.
 
