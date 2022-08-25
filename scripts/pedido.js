@@ -161,11 +161,12 @@ $botonProcesarPedido.addEventListener('click', () => {
 });
 
 const finalizarPedido = () => {
-
-    const mensaje = document.createElement('p');
-    mensaje.textContent = '¡Gracias por tu compra!';
-    mensaje.id = 'mensaje-finalizar';
-    $contenedorFinalizar.append(mensaje);
+    swal({
+        title: "¡Gracias por tu compra!",
+        text: `Abonaste: $${cantidadDelPedido * precioUnidad}`,
+        icon: "success",
+        button: "Finalizar",
+      });
 };
 
 
@@ -186,3 +187,5 @@ botonFinalizar.addEventListener('click', () => {
         }
     }
 });
+
+
