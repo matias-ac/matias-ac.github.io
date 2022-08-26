@@ -1,44 +1,39 @@
 # Curso JavaScript Coderhouse
 
-## Clase 11 - Workshop I
+## Clase 13 - Librerías
 
-### Segunda entrega del proyecto final
+### Incorporando librerías
 
 ---
 
 **Tipo de desafío:** 
-Proyecto Final - Segunda Entrega.
+Desafío entregable.
 
-**Formato:** 
-Página HTML y código fuente en JavaScript. Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por “claseApellido”. 
-
-**Sugerencia:**
-En la segunda entrega buscamos programar el código esencial para garantizar dinamismo en el HTML con JavaScript. 
-
-En relación a la primer entrega, ya no usamos `alert()` como salida y `promt()` como entrada, ahora modificamos el DOM para las salidas y capturamos los eventos del usuario sobre inputs y botones para las entradas. Verificar Rúbrica.
+**Consigna:** 
+Con lo visto en clase, incorpora al menos una librería a tu proyecto, brindándole un uso relevante. Si lo ves necesario, también es válida la opción de investigar por tu cuenta e integrar una librería diferente a las vistas en clase. Cualquiera sea tu elección de librería, justificá tu decisión.
 
 ---
 
 **>> Objetivos Generales:**
 
-- Codificar funciones de procesos esenciales y notificación de resultados por HTML, añadiendo interacción al simulador. 
+- Incorporar una librería al proyecto de manera coherente, cuya aplicación se torne significativa para tu proyecto.
 
-- Ampliar y refinar el flujo de trabajo del script en términos de captura de eventos, procesamiento del simulador y notificación de resultados en forma de salidas por HTML, modificando el DOM.
-
-
-**>> Objetivos Específicos:**
-
-- Definir eventos a manejar y su funciòn de respuesta.
-
-- Modificar el DOM, ya sea para definir elementos al cargar la página o para realizar salidas de un procesamiento.
-
-- Almacenar datos (clave-valor) en el Storage y recuperarlos.
+- Justificá tu elección según la naturaleza de tu proyecto y la utilidad que la librería seleccionada pueda tener en él. 
 
 
+**>> Ejemplos:**
+
+- Algunas pistas 😎 Para lograr coherencia entre la librería seleccionada y el proyecto, deberás pensar en su aplicación real. Supongamos:
+
+    - Trabajo con fechas, en este caso lo más útil sería elegir librería Luxon 📆
+
+    - Trabajo con alert, entonces lo más coherente sería tomar Toastify o Sweet Alert 🚨
 ---
 
-**>> Se debe entregar:**
+## Descripción del proyecto
 
-- Implementación con uso de JSON y Storage. 
+Se trata de una página web de venta de empanadas.
 
-- Modificación del DOM y detección de eventos de usuario.
+Posee la funcionalidad para procesar el pedido al hacer click en el botón "Iniciar pedido".
+
+Incorpora la librería SweetAlert para finalizar el pedido.
