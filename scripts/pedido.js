@@ -154,6 +154,7 @@ $botonProcesarPedido.addEventListener('click', () => {
             mensajeFinal.textContent = `Tu total es de: $ ${cantidadDelPedido * precioUnidad}`;
             $contenedorDePago.append(mensajeFinal);
             $contenedorDePago.append(botonFinalizar);
+            $contenedorDePago.className = 'contenedor-pago';
         } else {
             clickBotonIrAPagar = 0;
         }
