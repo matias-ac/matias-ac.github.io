@@ -12,6 +12,10 @@ const $botonFinalizar = $('#boton-finalizar');
 const $contenedorDePago = $('#contenedor-pago');
 
 
+const DATA_LOCAL = '../data/data.json';
+const PRECIO_UNIDAD = 250;
+
+
 const botonAgregar = document.createElement('button');
 botonAgregar.id = 'boton-agregar';
 botonAgregar.textContent = 'Agregar Empanadas';
@@ -88,16 +92,29 @@ const agregarOpcionAlMenuOpciones = (value, id) => {
 
 const crearMenuDeOpciones = (listaDeEmpanadas) => {
     let id = 0;
-    listaDeEmpanadas.forEach(sabor => {
+    listaDeEmpanadas.forEach(empanada => {
         id++;
-        const opcion = agregarOpcionAlMenuOpciones(sabor.nombre, id);
+        const opcion = agregarOpcionAlMenuOpciones(empanada.sabor, id);
         $opciones.append(opcion);
     });
 };
 
+// ASYNC/AWAIT - FETCH
+const listaDeSabores = [];
+const obtenerData = async () => {
 
-crearMenuDeOpciones(listaSabores);
-$opciones.append(botonAgregar);
+    const respuesta = await fetch(DATA_LOCAL);
+    const data = await respuesta.json();
+
+    data.empanadas.forEach(elemento => {
+        listaDeSabores.push(elemento);
+    })
+
+    crearMenuDeOpciones(listaDeSabores);
+    $opciones.append(botonAgregar);
+};
+
+obtenerData();
 
 
 const carrito = [];
@@ -151,7 +168,7 @@ $botonProcesarPedido.addEventListener('click', () => {
     if (clickBotonIrAPagar === 1) {
         if (cantidadDelPedido > 0) {
             const mensajeFinal = document.createElement('p');
-            mensajeFinal.textContent = `Tu total es de: $ ${cantidadDelPedido * precioUnidad}`;
+            mensajeFinal.textContent = `Tu total es de: $ ${cantidadDelPedido * PRECIO_UNIDAD}`;
             $contenedorDePago.append(mensajeFinal);
             $contenedorDePago.append(botonFinalizar);
             $contenedorDePago.className = 'contenedor-pago';
@@ -164,7 +181,7 @@ $botonProcesarPedido.addEventListener('click', () => {
 const finalizarPedido = () => {
     swal({
         title: "¡Gracias por tu compra!",
-        text: `Abonaste: $${cantidadDelPedido * precioUnidad}`,
+        text: `Abonaste: $${cantidadDelPedido * PRECIO_UNIDAD}`,
         icon: "success",
         button: "Finalizar",
         className: "modal-sweetalert"
