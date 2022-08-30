@@ -1,39 +1,32 @@
 # Curso JavaScript Coderhouse
 
-## Clase 13 - Librerías
+## Clase 15 - AJAX & Fetch
 
-### Incorporando librerías
+### Fetch en tu proyecto
 
 ---
 
 **Tipo de desafío:** 
 Desafío entregable.
 
+**Formato:** 
+Página HTML y  código fuente en JavaScript. Debe identificar el apellido del alumno/a en el nombre de archivo comprimido por “claseApellido”.
+
 **Consigna:** 
-Con lo visto en clase, incorpora al menos una librería a tu proyecto, brindándole un uso relevante. Si lo ves necesario, también es válida la opción de investigar por tu cuenta e integrar una librería diferente a las vistas en clase. Cualquiera sea tu elección de librería, justificá tu decisión.
+Utiliza fetch() para cargar datos en tu aplicación de forma asincrónica:
+- puedes consumir una API que ofrezca recursos relevantes para tu app, o bien,
+- crea un archivo .JSON y carga los datos de tu app usando fetch y una ruta relativa.
 
 ---
 
-**>> Objetivos Generales:**
+**>> Aspectos a incluir en el entregable:**
 
-- Incorporar una librería al proyecto de manera coherente, cuya aplicación se torne significativa para tu proyecto.
-
-- Justificá tu elección según la naturaleza de tu proyecto y la utilidad que la librería seleccionada pueda tener en él. 
-
+Archivo HTML y Archivo JS, referenciado en el HTML por etiqueta <script src="js/miarchivo.js"></script>, que incluya la definición de un algoritmo en JavaScript que realice peticiones http usando fetch.
 
 **>> Ejemplos:**
 
-- Algunas pistas 😎 Para lograr coherencia entre la librería seleccionada y el proyecto, deberás pensar en su aplicación real. Supongamos:
+- Escribir los datos de tus productos en venta en un archivo .json y cargarlo en el inicio usando fetch();
 
-    - Trabajo con fechas, en este caso lo más útil sería elegir librería Luxon 📆
+- Si tengo una app sobre películas y series, armar mi catálogo consultando una API que envíe datos sobre ésto;
 
-    - Trabajo con alert, entonces lo más coherente sería tomar Toastify o Sweet Alert 🚨
----
-
-## Descripción del proyecto
-
-Se trata de una página web de venta de empanadas.
-
-Posee la funcionalidad para procesar el pedido al hacer click en el botón "Iniciar pedido".
-
-Incorpora la librería SweetAlert para finalizar el pedido.
+- Si trabajo con un formulario, al hacer submit puedo hacer una petición POST a alguna API de emails para enviar correos (ej, Email JS).
