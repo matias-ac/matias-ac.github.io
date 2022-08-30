@@ -10,6 +10,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .opciones-titulo {
@@ -35,17 +36,21 @@
 input {
     border: none;
     background-color: white;
-    height: 20px;
+    height: 30px;
     padding: 5px;
     box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.301);
 }
 
 .sabor {
     width: 200px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .cantidad {
     width: 50px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px
 }
 
 button {
@@ -61,8 +66,9 @@ button:hover {
 .boton-restar, .boton-sumar {
     width: 20px;
     height: 20px;
-    margin: 10px;
+    margin-left: 10px;
     box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
 }
 
 #boton-agregar, #boton-finalizar {
@@ -71,10 +77,24 @@ button:hover {
     box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.301);
     align-self: center;
     margin: 30px;
+    border-radius: 5px;
+}
+
+#boton-agregar:hover {
+    background-color: red;
+}
+
+#boton-finalizar {
+    background-color: black;
+    color: white;
+}
+
+#boton-finalizar:hover {
+    background-color: red;
 }
 
 .contenedor-opcion {
-    margin: 10px;
+    margin: 15px;
 }
 
 #pedido {
@@ -117,11 +137,12 @@ button:hover {
     box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.301);
     align-self: center;
     margin: 30px;
+    border-radius: 5px;
 }
 
 #pedido button:hover {
-    background-color: white;
-    color: black;
+    background-color: red;
+    color: rgb(255, 255, 255);
 }
 
 #finalizar {
