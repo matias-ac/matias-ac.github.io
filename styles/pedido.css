@@ -31,6 +31,8 @@
     background-color: rgba(0, 0, 0, 0.473);
     margin-top: 30px;
     margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.301);
 }
 
 input {
@@ -50,7 +52,8 @@ input {
 .cantidad {
     width: 50px;
     border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px
+    border-top-right-radius: 5px;
+    margin-right: 10px;
 }
 
 button {
@@ -66,7 +69,7 @@ button:hover {
 .boton-restar, .boton-sumar {
     width: 20px;
     height: 20px;
-    margin-left: 10px;
+    margin-left: 8px;
     box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.301);
     border-radius: 5px;
 }
@@ -163,3 +166,6 @@ button:hover {
     border-radius: 5px;    
 }
 
+.modal-sweetalert button {
+    background-color: black;
+}

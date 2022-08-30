@@ -167,6 +167,7 @@ const finalizarPedido = () => {
         text: `Abonaste: $${cantidadDelPedido * precioUnidad}`,
         icon: "success",
         button: "Finalizar",
+        className: "modal-sweetalert"
       });
 };
 
