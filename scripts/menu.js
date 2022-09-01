@@ -1,10 +1,12 @@
 const $menuEmpanadas = document.querySelector('#menu-contenedor');
-const DATA_LOCAL = './data/data.json';
+const API_URL = 'https://6310d48c826b98071a4bd630.mockapi.io/empanadas';
 
-const generarMenuEmpanadas = (listaDeEmpanadas) => {
+const crearMenu = async (url) => {
 
-    listaDeEmpanadas.forEach(empanada => {
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
 
+    data.empanadas.forEach(empanada => {
         const contenedor = document.createElement('div');
         const nombre = document.createElement('p');
         const descripcion = document.createElement('p');
@@ -14,23 +16,7 @@ const generarMenuEmpanadas = (listaDeEmpanadas) => {
     
         contenedor.append(nombre, descripcion);
         $menuEmpanadas.appendChild(contenedor);
-
     });
 };
 
-const listaDeEmpanadas = [];
-
-const obtenerData = async () => {
-
-    const respuesta = await fetch(DATA_LOCAL);
-    const data = await respuesta.json();
-
-    data.empanadas.forEach(elemento => {
-        listaDeEmpanadas.push(elemento);
-    })
-
-    generarMenuEmpanadas(listaDeEmpanadas)
-};
-
-obtenerData();
-
+crearMenu(API_URL);
