@@ -12,7 +12,7 @@ const $botonFinalizar = $('#boton-finalizar');
 const $contenedorDePago = $('#contenedor-pago');
 
 
-const DATA_LOCAL = '../data/data.json';
+const API_URL = 'https://6310d48c826b98071a4bd630.mockapi.io/empanadas';
 const PRECIO_UNIDAD = 250;
 
 
@@ -90,31 +90,19 @@ const agregarOpcionAlMenuOpciones = (value, id) => {
     return contenedor;
 };
 
-const crearMenuDeOpciones = (listaDeEmpanadas) => {
+const crearMenuDeOpciones = async (url) => {
+    
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
+    
     let id = 0;
-    listaDeEmpanadas.forEach(empanada => {
+    data.empanadas.forEach(empanada => {
         id++;
         const opcion = agregarOpcionAlMenuOpciones(empanada.sabor, id);
         $opciones.append(opcion);
     });
-};
-
-// ASYNC/AWAIT - FETCH
-const listaDeSabores = [];
-const obtenerData = async () => {
-
-    const respuesta = await fetch(DATA_LOCAL);
-    const data = await respuesta.json();
-
-    data.empanadas.forEach(elemento => {
-        listaDeSabores.push(elemento);
-    })
-
-    crearMenuDeOpciones(listaDeSabores);
     $opciones.append(botonAgregar);
 };
-
-obtenerData();
 
 
 const carrito = [];
@@ -131,6 +119,18 @@ const agregarSaboresAlCarrito = () => {
         }
     })
 };
+
+const finalizarPedido = () => {
+    swal({
+        title: "¡Gracias por tu compra!",
+        text: `Abonaste: $${cantidadDelPedido * PRECIO_UNIDAD}`,
+        icon: "success",
+        button: "Finalizar",
+        className: "modal-sweetalert"
+      });
+};
+
+crearMenuDeOpciones(API_URL);
 
 const $carrito = $('#carrito');
 const $saboresElegidos = $('#sabores-elegidos');
@@ -178,15 +178,7 @@ $botonProcesarPedido.addEventListener('click', () => {
     }
 });
 
-const finalizarPedido = () => {
-    swal({
-        title: "¡Gracias por tu compra!",
-        text: `Abonaste: $${cantidadDelPedido * PRECIO_UNIDAD}`,
-        icon: "success",
-        button: "Finalizar",
-        className: "modal-sweetalert"
-      });
-};
+
 
 
 let clickBotonFinalizar = 0;
