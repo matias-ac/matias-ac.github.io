@@ -33,12 +33,17 @@ header {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.6);
 }
 
-#logo {
+#contenedor-logo a{
     margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-#logo img {
+#contenedor-logo img {
     width: 50px;
+    margin-right: 15px;
 }
 
 a {
@@ -163,4 +168,33 @@ footer a {
 footer ul {
     display: flex;
     flex-direction: column;
+}
+
+#contenedor-home, #contenedor-copyright, #contenedor-redes {
+    width: 30%;
+}
+
+#contenedor-copyright a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor-copyright a p {
+    margin-right: 15px;
+}
+
+.icono-footer {
+    width: 35px;
+}
+
+#contenedor-redes ul {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+}
+
+.redes-sociales {
+    width: 35px;
 }
