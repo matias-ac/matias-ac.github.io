@@ -1,20 +1,20 @@
 {
-  "name": "proyecto-final-03",
+  "name": "proyecto-final",
   "version": "1.0.0",
-  "description": "## Clase 15 - AJAX & Fetch",
+  "description": "## Proyecto Final",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/javascript-coderhouse/ajax-fetch.git"
+    "url": "git+https://gitlab.com/javascript-coderhouse/proyecto-final.git"
   },
-  "author": "",
+  "author": "Matías Ariel Castro",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/javascript-coderhouse/ajax-fetch/issues"
+    "url": "https://gitlab.com/javascript-coderhouse/proyecto-final/issues"
   },
-  "homepage": "https://gitlab.com/javascript-coderhouse/ajax-fetch#readme",
+  "homepage": "https://gitlab.com/javascript-coderhouse/proyecto-final#readme",
   "type": "module",
 }
