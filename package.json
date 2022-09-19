@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://gitlab.com/javascript-coderhouse/ajax-fetch/issues"
   },
-  "homepage": "https://gitlab.com/javascript-coderhouse/ajax-fetch#readme"
+  "homepage": "https://gitlab.com/javascript-coderhouse/ajax-fetch#readme",
+  "type": "module",
 }
