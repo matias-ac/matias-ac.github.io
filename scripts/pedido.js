@@ -145,25 +145,42 @@ const finalizarPedido = () => {
 
 crearMenuDeOpciones(API_URL);
 
+const recargarMenuDeOpciones = () => {
+    $opciones.innerHTML = '';
+    crearMenuDeOpciones(API_URL);
+};
+
 const $carrito = $('#carrito');
 const $saboresElegidos = $('#sabores-elegidos');
 const $cantidadesElegidas = $('#cantidades-elegidas');
 
 botonAgregar.addEventListener('click', () => {
 
-    if (carrito.length === 0) {
+    
+    vaciarPedido(carrito);
         agregarSaboresAlCarrito();
+    recargarMenuDeOpciones();
+    
+
+    const cantidades = document.querySelectorAll('.cantidad');
+    cantidades.forEach(cantidad => {
+        cantidad.value = 0;
+    });
 
         carrito.forEach(producto => {
             const texto = document.createElement('p');
-            texto.textContent = producto.sabor;
+        texto.textContent = `> ${producto.sabor}`;
+        texto.className = 'producto';
             $saboresElegidos.append(texto);
 
             const cantidad = document.createElement('p');
-            cantidad.textContent = `x ${producto.cantidad}`;
+        cantidad.textContent = `${producto.cantidad}`;
+        cantidad.id = 'cantidadFinal';
             $cantidadesElegidas.append(cantidad);
-        })
-    }
+    });
+
+});
+
 });
 
 let cantidadDelPedido = 0;
