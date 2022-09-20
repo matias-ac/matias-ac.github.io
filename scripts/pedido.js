@@ -212,10 +212,11 @@ $botonProcesarPedido.addEventListener('click', () => {
         } else {
             clickBotonIrAPagar = 0;
         }
-    }
+    };
+
+    $contenedorModal.classList.remove('contenedor-modal-activo');
+
 });
-
-
 
 
 let clickBotonFinalizar = 0;
