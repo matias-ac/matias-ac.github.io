@@ -196,10 +196,11 @@ $botonProcesarPedido.addEventListener('click', () => {
 
     clickBotonIrAPagar++;
 
-    carrito.forEach(producto => {
-        const cantidad = producto.cantidad;
+    const carritoFinal = document.querySelectorAll('#cantidadFinal');
+    carritoFinal.forEach(producto => {
+        const cantidad = Number(producto.innerHTML);
         cantidadDelPedido += cantidad;
-    })
+    });
 
     if (clickBotonIrAPagar === 1) {
         if (cantidadDelPedido > 0) {
