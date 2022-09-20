@@ -200,3 +200,23 @@ botonFinalizar.addEventListener('click', () => {
 });
 
 
+
+// CARRITO
+const $contenedorModal = document.querySelector('#contenedor-modal');
+const $modal = document.querySelector('#modal');
+const $botonAbrirModal = document.querySelector('#modal-abrir');
+const $botonCerrarModal = document.querySelector('#modal-cerrar');
+
+$botonAbrirModal.addEventListener('click', () => {
+    $contenedorModal.classList.add('contenedor-modal-activo');
+});
+
+$botonCerrarModal.addEventListener('click', () => {
+    $contenedorModal.classList.remove('contenedor-modal-activo');
+});
+
+window.addEventListener('click', (evento) => {
+    if (evento.target.id === 'contenedor-modal') {
+        $contenedorModal.classList.remove('contenedor-modal-activo');
+    }
+});
