@@ -1,7 +1,7 @@
 const $menuEmpanadas = document.querySelector('#menu-contenedor');
 const API_URL = 'https://6310d48c826b98071a4bd630.mockapi.io/empanadas';
 
-const crearMenu = async (url) => {
+export const crearMenu = async (url) => {
 
     const respuesta = await fetch(url);
     const data = await respuesta.json();
@@ -18,5 +18,3 @@ const crearMenu = async (url) => {
         $menuEmpanadas.appendChild(contenedor);
     });
 };
-
-crearMenu(API_URL);
