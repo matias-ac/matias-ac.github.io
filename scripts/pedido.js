@@ -108,8 +108,10 @@ const crearMenuDeOpciones = async (url) => {
 const carrito = [];
 
 const agregarSaboresAlCarrito = () => {
+    
     const saboresIngresados = document.querySelectorAll('.sabor');
     let id = 0;
+
     saboresIngresados.forEach(sabor => {
         id++;
         const cantidad = Number(document.querySelector(`#cantidad${id}`).value);
