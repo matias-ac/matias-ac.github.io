@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/icon-empanada.png">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/pedido.css">
     <title>Empanadas Online</title>
 </head>
 <body>
@@ -18,16 +19,14 @@
                 </a>
             </div>
             <nav id="nav">
-                <button id="boton-iniciar">
-                    <a href="./pages/pedido.html">Iniciar pedido</a>
-                </button>
                 <ul id="nav-secciones">
                     <li>
                         <a href="#menu-empanadas">Empanadas</a>
                     </li>
-                    <li>Sucursales</li>
-                    <li>Franquicias</li>
                 </ul>
+                <button id="boton-iniciar">
+                    <a href="#contenedor-pedido">Iniciar pedido</a>
+                </button>
             </nav>
         </header>
         <section id="nosotros">
@@ -45,6 +44,42 @@
 
             </div>
         </section>
+
+        <div class="menu">
+            <div id="contenedor-modal" class="contenedor-modal">
+                <div id="modal" class="modal">
+                    <div class="modal-encabezado">
+                        <h3 class="modal-titulo">Tu pedido:</h3>
+                        <button id="modal-cerrar" class="modal-cerrar">X</button>
+                    </div>
+                    <hr>
+                    <div id="carrito">
+                        <div id="sabores-elegidos">
+    
+                        </div>
+                        <div id="cantidades-elegidas">
+    
+                        </div>
+                    </div>
+                    <div id="modal-botones" class="modal-botones">
+                        <button id="vaciar-pedido" class="vaciar-pedido">Vaciar carrito</button>
+                        <button id="procesar-pedido" class="procesar-pedido">Ir a pagar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="contenedor-pedido" class="contenedor-pedido">
+                <section id="opciones" class="opciones">
+                    
+                </section>
+            </div>
+            <div>
+                <button id="modal-abrir" class="modal-abrir">Ver carrito</button>
+            </div>
+            <div id="contenedor-pago">
+                <section id="finalizar">
+                    
+                </section>
+            </div>
         <footer>
             <div id="contenedor-home">
                 <a href="./index.html">
@@ -53,7 +88,6 @@
             </div>
             <div id="contenedor-copyright">
                 <a href="https://gitlab.com/matias-ac" target="_blank">
-                    <!-- <p>Diseñado por</p> -->
                     <img class="redes-sociales" src="./img/gitlab.png" alt="icono gitlab">
                 </a>
             </div>
@@ -78,7 +112,8 @@
             </div>
         </footer>
     </div>
-    <!-- <script src="./scripts/menu.js"></script> -->
     <script src="./app.js" type="module"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./scripts/pedido.js"></script>
 </body>
 </html>
