@@ -124,7 +124,13 @@ const agregarSaboresAlCarrito = () => {
         if (cantidad > 0) {
             carrito.push({sabor: sabor.value, cantidad: cantidad});
         }
-    })
+    });
+};
+
+const vaciarPedido = (carrito) => {
+    while (carrito.length > 0) {
+        carrito.pop();
+    };
 };
 
 const finalizarPedido = () => {
