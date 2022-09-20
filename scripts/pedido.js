@@ -92,6 +92,11 @@ const agregarOpcionAlMenuOpciones = (value, id) => {
 
 const crearMenuDeOpciones = async (url) => {
     
+    const titulo = document.createElement('div');
+    titulo.className = 'opciones-titulo';
+    titulo.innerHTML = '<h3>Agrega tus empanadas:</h3>';
+    $opciones.append(titulo);
+    
     const respuesta = await fetch(url);
     const data = await respuesta.json();
     
