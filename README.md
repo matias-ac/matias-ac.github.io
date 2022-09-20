@@ -4,6 +4,8 @@
 
 ### Descripción del proyecto:
 
+[Link al proyecto](https://matias-ac.github.io/).
+
 El proyecto trata de un sitio web para venta de distintas opciones de empanadas.
 
 Se utiliza la librería [SweetAlert](https://sweetalert.js.org/) para finalizar la compra con un mensaje al usuario.
