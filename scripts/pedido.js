@@ -181,6 +181,12 @@ botonAgregar.addEventListener('click', () => {
 
 });
 
+
+const $botonVaciarCarrito = document.querySelector('#vaciar-pedido');
+$botonVaciarCarrito.addEventListener('click', () => {
+    vaciarPedido(carrito);
+    $saboresElegidos.innerHTML = '';
+    $cantidadesElegidas.innerHTML = '';
 });
 
 let cantidadDelPedido = 0;
